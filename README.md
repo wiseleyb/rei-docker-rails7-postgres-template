@@ -1,6 +1,37 @@
 # REI Docker Rails-7 Postgres API Template
 
+This is a super basic template to use to kick start api/postgres/rails-7 projects. 
 Created with [Rails Igniter](https://rails7igniter.vercel.app/)
+
+
+## Docker
+
+### Aliases used
+
+```
+alias dccomp='docker-compose'
+alias dccop='docker-compose run web rubocop'
+alias dcup='docker-compose up'
+alias dcdown='docker-compose down'
+alias dcbuild='docker-compose build'
+alias dccon='docker-compose run web bundle exec rails c'
+alias dcrails='docker-compose run web bundle exec rails'
+alias dcrake='docker-compose run web bundle exec rake'
+alias dcrspec='docker-compose run web bundle exec rspec'
+```
+
+### Setup
+
+```
+chmod 755 entrypoint.sh
+dcbuild
+dcup
+dccomp run web bundle install
+dcrake db:setup db:migrate db:test:prepare
+dcrspec
+```
+
+## Created with [rails7igniter](https://rails7igniter.vercel.app/)
 
 ```
 rails new rei-docker-rails7-postgres-api-template \
@@ -10,12 +41,3 @@ rails new rei-docker-rails7-postgres-api-template \
 --skip-asset-pipeline \
 --skip-system-test
 ```
-
-Setup
-
-```Ruby
-bundle install
-be rake db:setup
-be rake db:migrate
-```
-
