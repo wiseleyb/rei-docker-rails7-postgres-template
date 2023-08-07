@@ -38,8 +38,9 @@ gem "bootsnap", require: false
 
 gem 'koyo-postgres-replication', 
     git: 'https://github.com/wiseleyb/koyo-postgres-replication',
-    branch: 'experimental',
+    ref: '76566a4',
     require: 'koyo'
+    #branch: 'experimental',
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
