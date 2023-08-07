@@ -1,3 +1,14 @@
+GIT
+  remote: https://github.com/wiseleyb/koyo-postgres-replication
+  revision: d6c52850c336eb74d1a846d0b07fc5804ede97ad
+  branch: experimental
+  specs:
+    koyo-postgres-replication (0.1.0)
+      pg (>= 1.1)
+      rack (>= 2.0.0)
+      rails (>= 7.0)
+      rake (>= 13.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -182,6 +193,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   debug
+  koyo-postgres-replication!
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.6)

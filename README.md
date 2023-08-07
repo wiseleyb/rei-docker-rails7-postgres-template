@@ -24,11 +24,21 @@ alias dcrspec='docker-compose run web bundle exec rspec'
 
 ```
 chmod 755 entrypoint.sh
-dcbuild
-dcup
-dccomp run web bundle install
+dcimplode
+dcup --build
+dcbundle
 dcrake db:setup db:migrate db:test:prepare
 dcrspec
+```
+
+## Shell
+
+```
+docker compose run db
+docker container ls
+docker exec -it {name} bash
+su postgres
+psql 
 ```
 
 ## Created with [rails7igniter](https://rails7igniter.vercel.app/)
