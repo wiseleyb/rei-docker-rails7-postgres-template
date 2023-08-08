@@ -1,17 +1,21 @@
 version: '3.7'
 services:
   db:
-    image: postgres:13
+    build: ./docker/postgres
+    image: postgres:14
     ports:
       - "5432:5432"
     environment:
       - POSTGRES_PASSWORD=changeme
     volumes:
       - db_data:/var/lib/postgresql/data
+    command: postgres -c wal_level=logical
+    stdin_open: true
+    tty: true
   web:
-    build: .
+    build: ./docker/web
     image: rails-on-docker:1.3.0
-    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    command: bash -c "rm -f tmp/pids/server.pid && bundle install && bundle exec rake db:setup db:migrate && bundle exec rails s -p 3000 -b '0.0.0.0'"
     ports:
       - "3000:3000"
     stdin_open: true
